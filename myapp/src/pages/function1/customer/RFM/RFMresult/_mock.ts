@@ -139,18 +139,18 @@ const salesTypeDataOffline = [
 
 const salesWayData = [
   {
-    x: '京东',
+    x: '电商',
     y: 4544,
   },
   {
-    x: '淘宝',
+    x: '直播',
     y: 3321,
   },
   {
-    x: '抖音',
+    x: '自营',
     y: 3113,
   },
-  {
+  /*{
     x: '线下直营店',
     y: 2341,
   },
@@ -161,7 +161,7 @@ const salesWayData = [
   {
     x: '其他',
     y: 1231,
-  },
+  },*/
 ];
 
 const salesWayDataOnline = [
@@ -289,36 +289,26 @@ for (let i = 0; i < 20; i += 1) {
 }
 const offlineChartData2 = [];
 for (let i = 0; i < 10; i += 1) {
-  const date = moment(new Date().getTime() + 1000 * 60 * 30 * i).format('HH:mm');
+  const date = moment(new Date().getTime() + 60 * 60 * 24 * 1000 * i).format('MM/DD');
   offlineChartData2.push({
     date,
-    type: '京东',
+    type: '电商',
     value: Math.floor(Math.random() * 100) + i*10,
   });
   offlineChartData2.push({
     date,
-    type: '淘宝',
+    type: '直播',
     value: Math.floor(Math.random() * 100) + i*10,
   });
   offlineChartData2.push({
     date,
-    type: '抖音',
-    value: Math.floor(Math.random() * 100) + i*10,
-  });
-  offlineChartData2.push({
-    date,
-    type: '线下直营店',
-    value: Math.floor(Math.random() * 100) + i*10,
-  });
-  offlineChartData2.push({
-    date,
-    type: '非直营店',
+    type: '自营',
     value: Math.floor(Math.random() * 100) + i*10,
   });
 }
 const offlineChartData3 = [];
 for (let i = 0; i < 10; i += 1) {
-  const date = moment(new Date().getTime() + 1000 * 60 * 30 * i).format('HH:mm');
+  const date = moment(new Date().getTime() +  60 * 60 * 24 * 1000 * i).format('MM/DD');
   offlineChartData3.push({
     date,
     type: '古越龙山',
@@ -347,7 +337,7 @@ for (let i = 0; i < 10; i += 1) {
 }
 const offlineChartData4 = [];//eshop
 for (let i = 0; i < 10; i += 1) {
-  const date = moment(new Date().getTime() + 1000 * 60 * 30 * i).format('HH:mm');
+  const date = moment(new Date().getTime() +  60 * 60 * 24 * 1000 * i).format('MM/DD');
   offlineChartData4.push({
     date,
     type: '京东',
@@ -376,7 +366,7 @@ for (let i = 0; i < 10; i += 1) {
 }
 const offlineChartData5 = [];//eshop
 for (let i = 0; i < 10; i += 1) {
-  const date = moment(new Date().getTime() + 1000 * 60 * 30 * i).format('HH:mm');
+  const date = moment(new Date().getTime() +  60 * 60 * 24 * 1000 * i).format('MM/DD');
   offlineChartData5.push({
     date,
     type: '抖音',

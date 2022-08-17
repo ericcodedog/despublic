@@ -1,5 +1,5 @@
 import { InfoCircleOutlined } from '@ant-design/icons';
-import { TinyArea, TinyColumn, Progress } from '@ant-design/charts';
+import { TinyArea,  Progress } from '@ant-design/charts';//TinyColumn,
 import { Col, Row, Tooltip } from 'antd';
 
 import numeral from 'numeral';
@@ -170,7 +170,7 @@ const IntroduceRow = ({ loading, visitData }: { loading: boolean; visitData: Dat
             <InfoCircleOutlined />
           </Tooltip>
         }
-        total="78%"
+        total="0.78(ROI)"
         footer={
           <div style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
             <Trend flag="up" style={{ marginRight: 16 }}>

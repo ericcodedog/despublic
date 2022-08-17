@@ -40,13 +40,7 @@ const Salesway = ({
     }}
     
   >
-    <div className={styles.salesExtraWrap}>
-            <RangePicker
-              value={rangePickerValue}
-              onChange={handleRangePickerChange}
-              style={{ width: 256 }}
-            />
-          </div>
+    
     <div>
       <Text>销售额</Text>
       <Donut
@@ -78,3 +72,10 @@ const Salesway = ({
 );
 
 export default Salesway;
+/*<div className={styles.salesExtraWrap}>
+            <RangePicker
+              value={rangePickerValue}
+              onChange={handleRangePickerChange}
+              style={{ width: 256 }}
+            />
+          </div>*/
