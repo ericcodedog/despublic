@@ -55,7 +55,7 @@ const Incomenewuser = ({
         <NumberInfo
           subTitle={
             <span>
-              营收
+              广告收益
               <Tooltip title="指标说明">
                 <InfoCircleOutlined style={{ marginLeft: 8 }} />
               </Tooltip>
@@ -78,7 +78,7 @@ const Incomenewuser = ({
               </Tooltip>
             </span>
           }
-          total={2.7}
+          total={27}
           status="down"
           subTotal={26.2}
           gap={8}

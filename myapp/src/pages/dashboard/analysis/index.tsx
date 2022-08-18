@@ -166,7 +166,7 @@ const Analysis: FC<AnalysisProps> = () => {
             marginTop: 24,
           }}
         >
-          <Col xl={10} lg={24} md={24} sm={24} xs={24}>
+          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
               <Salesway
                 dropdownGroup={dropdownGroup}
@@ -174,13 +174,13 @@ const Analysis: FC<AnalysisProps> = () => {
                 loading={loading}
                 //salesPieData={salesPieData || []}
                 salesPieData={salesWayPieData || []}
-                handleChangeSalesType={handleChangeSalesType} handleRangePickerChange={function (dates: RangeValue<Moment> | undefined, dateStrings: [string, string]): void {
+                handleChangeSalesType={handleChangeSalesType}
+                rangePickerValue={undefined} handleRangePickerChange={function (dates: RangeValue<Moment> | undefined, dateStrings: [string, string]): void {
                   throw new Error('Function not implemented.');
-                } } rangePickerValue={undefined}              
-                />
+                } }                />
             </Suspense>
           </Col>
-          <Col xl={14} lg={24} md={24} sm={24} xs={24}>
+          <Col xl={16} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
               <DataTrend
                 activeKey={activeKey}
@@ -554,8 +554,14 @@ const Analysis: FC<AnalysisProps> = () => {
               />
             </ChartCard>
           </Col>
+        
         </Row>
-        <Suspense fallback={null}>
+        
+        <Row gutter={24}
+          style={{
+            marginTop: 24,
+          }}>
+            <Col xl={24} lg={24} md={24} sm={24} xs={24}>
               <Incomenewuser
                 loading={loading}
                 visitData2={data?.visitData2 || []}
@@ -566,9 +572,21 @@ const Analysis: FC<AnalysisProps> = () => {
                 handleRangePickerChange={handleRangePickerChange}
                 selectDate={selectDate}
               />
+            </Col>
+            <Suspense fallback={null}>
+              
               
             </Suspense>
-        <Suspense fallback={null}>
+          </Row>
+        
+        
+      </>
+    </GridContent>
+  );
+};
+
+export default Analysis;
+/*<Suspense fallback={null}>
           <OfflineData
             activeKey={activeKey}
             loading={loading}
@@ -580,9 +598,4 @@ const Analysis: FC<AnalysisProps> = () => {
         <Card title="活动情况预测" style={{ marginBottom: 24 }} bordered={false}>
               <ActiveChart />
             </Card>
-      </>
-    </GridContent>
-  );
-};
-
-export default Analysis;
+            */
