@@ -7,8 +7,8 @@ export default {
   'menu.login': '登录',
   'menu.register': '注册',
   'menu.register-result': '注册结果',
-  'menu.dashboard': '可视化报表',//Dashboard
-  'menu.dashboard.analysis': '分析页',
+  'menu.dashboard': '智能报表',//Dashboard可视化报表
+  'menu.dashboard.analysis': '董事长分析页',//
   'menu.dashboard.monitor': '监控页',
   'menu.dashboard.workplace': '工作台',
   'menu.exception.403': '403',

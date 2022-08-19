@@ -82,6 +82,32 @@ const topColResponsiveProps = {
 
 
     */
+   /*
+   <ChartCard
+        bordered={false}
+        loading={loading}
+        title="访问量"
+        action={
+          <Tooltip title="指标说明">
+            <InfoCircleOutlined />
+          </Tooltip>
+        }
+        total={numeral(8846).format('0,0')}
+        footer={<Field label="日访问量" value={numeral(1234).format('0,0')} />}
+        contentHeight={46}
+      >
+        <TinyArea
+          color="#975FE4"
+          xField="x"
+          height={46}
+          forceFit
+          yField="y"
+          smooth
+          data={visitData}
+        />
+      </ChartCard>
+   
+   */
 const IntroduceRow = ({ loading, visitData }: { loading: boolean; visitData: DataItem[] }) => (
 
   <Row gutter={24}>
@@ -111,28 +137,27 @@ const IntroduceRow = ({ loading, visitData }: { loading: boolean; visitData: Dat
     </Col>
 
     <Col {...topColResponsiveProps}>
-      <ChartCard
+    <ChartCard
         bordered={false}
-        loading={loading}
-        title="访问量"
+        title="总用户数"
         action={
           <Tooltip title="指标说明">
             <InfoCircleOutlined />
           </Tooltip>
         }
-        total={numeral(8846).format('0,0')}
-        footer={<Field label="日访问量" value={numeral(1234).format('0,0')} />}
+        loading={loading}
+        total={() => <>12656000</>}
+        footer={<Field label="日增长" value={`${numeral(126560).format('0,0')}人`} />}
         contentHeight={46}
       >
-        <TinyArea
-          color="#975FE4"
-          xField="x"
-          height={46}
-          forceFit
-          yField="y"
-          smooth
-          data={visitData}
-        />
+        <Trend flag="up" style={{ marginRight: 16 }}>
+          周同比
+          <span className={styles.trendText}>12%</span>
+        </Trend>
+        <Trend flag="down">
+          日同比
+          <span className={styles.trendText}>11%</span>
+        </Trend>
       </ChartCard>
     </Col>
     
@@ -164,13 +189,13 @@ const IntroduceRow = ({ loading, visitData }: { loading: boolean; visitData: Dat
       <ChartCard
         loading={loading}
         bordered={false}
-        title="运营活动效果"
+        title="运营活动效果(ROI)"
         action={
           <Tooltip title="指标说明">
             <InfoCircleOutlined />
           </Tooltip>
         }
-        total="0.78(ROI)"
+        total="1.23"
         footer={
           <div style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
             <Trend flag="up" style={{ marginRight: 16 }}>

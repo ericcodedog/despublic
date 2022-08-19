@@ -6,6 +6,7 @@ import type { DonutConfig } from '@ant-design/charts/es/donut';
 import React from 'react';
 import type { DataItem } from '../data';
 import styles from '../style.less';
+import { Pie } from '@ant-design/plots';
 
 const { Text } = Typography;
 
@@ -33,7 +34,45 @@ const Streamway = ({
   >
     <div>
       <Text>销售额</Text>
-      <Donut
+      <Pie
+        //forceFit
+        height={360}
+        radius={1}
+        angleField="y"
+        colorField="x"
+        data={salesPieData as DataItem[]}
+        legend={{
+          visible: false,
+        }}
+        label={{
+          type:'inner',
+          style: {
+            fontSize: 15,
+            textAlign: 'center',
+          },
+          //visible: true,
+          //type: 'spider',
+          formatter: (text, item ,percent) => {
+            //eslint-disable-next-line no-underscore-dangle
+            //return `${item._origin.x}: ${numeral(item._origin.y).format('0,0')}`;
+            return  `${item._origin.x}: ${(numeral(item._origin.y).format('0,0')*1).toFixed(0)}%`;
+          },
+          //content: ({ percent }) => `${item._origin.x}: ${(percent * 100).toFixed(0)}%`,
+        }}
+        statistic={
+          {
+            totalLabel: '销售额比例',
+          } as DonutConfig['statistic']
+        }
+        
+      />
+    </div>
+  </Card>
+);
+
+export default Streamway;
+/*
+<Donut
         forceFit
         height={340}
         radius={0.8}
@@ -57,8 +96,7 @@ const Streamway = ({
           } as DonutConfig['statistic']
         }
       />
-    </div>
-  </Card>
-);
 
-export default Streamway;
+
+
+*/

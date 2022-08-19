@@ -46,10 +46,11 @@ const DataTrend = ({
   className={styles.offlineCard} 
   bordered={false} 
   style={{ height: '100%', }}
-  title="销售渠道收益占比"
+  //
   >
-    <Tabs activeKey={activeKey} onChange={handleTabChange}>
-      {offlineData.map((shop) => (
+    
+    <Tabs title="销售渠道收益占比" activeKey={activeKey} onChange={handleTabChange}>
+    {offlineData.map((shop) => (
         <TabPane key={shop.name}>
           <div style={{ padding: '0 24px' }}>
             <Line

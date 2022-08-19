@@ -64,6 +64,7 @@ export interface AnalysisData {
   offlineChartData3: DataItem[];
   offlineChartData4: DataItem[];
   offlineChartData5: DataItem[];
+  offlineChartDataEmpty: DataItem[];
   salesTypeData: DataItem[];
   salesTypeDataOnline: DataItem[];
   salesTypeDataOffline: DataItem[];
@@ -73,4 +74,5 @@ export interface AnalysisData {
   eshopData: DataItem[];
   streamData: DataItem[];
   radarData: RadarData[];
+  selfsales: DataItem[];
 }

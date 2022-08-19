@@ -42,11 +42,13 @@ type SalesType = 'all' | 'online' | 'stores';
 type SalesWay = 'all' | 'online' | 'stores';
 type Eshop = 'all' | 'online' | 'stores';
 type Streamway = 'all' | 'online' | 'stores';
+type Selfsales = 'all' | 'online' | 'stores';
 const Analysis: FC<AnalysisProps> = () => {
   const [salesType, setSalesType] = useState<SalesType>('all');
   const [salesWay, setSalesWay] = useState<SalesWay>('all');
   const [eshop , setEshop] = useState<Eshop>('all')
   const [streamway , setStream] = useState<Streamway>('all')
+  const [selfway , setself] = useState<Selfsales>('all')
   const [currentTabKey, setCurrentTabKey] = useState<string>('');
   const [rangePickerValue, setRangePickerValue] = useState<RangePickerValue>(
     getTimeDistance('year'),
@@ -104,6 +106,10 @@ const Analysis: FC<AnalysisProps> = () => {
   if (streamway === 'all') {
     streamPieData = data?.streamData;
   }
+  let self;
+  if (selfway == 'all'){
+    self = data?.selfsales;
+  }
   const menu = (
     <Menu>
       <Menu.Item>操作一</Menu.Item>
@@ -151,6 +157,11 @@ const Analysis: FC<AnalysisProps> = () => {
         </Suspense>
 
 */ 
+/*
+
+
+
+*/
   return (
     <GridContent>
       <>
@@ -192,7 +203,9 @@ const Analysis: FC<AnalysisProps> = () => {
             </Suspense>
           </Col>
         </Row>
-        <h1>
+        <h1 style={{
+            marginTop: 24,
+          }}>
           电商
         </h1>
         <Row
@@ -254,13 +267,13 @@ const Analysis: FC<AnalysisProps> = () => {
             <ChartCard
               loading={loading}
               bordered={false}
-              title="运营活动效果"
+              title="运营活动效果(ROI)"
               action={
                 <Tooltip title="指标说明">
                   <InfoCircleOutlined />
                 </Tooltip>
               }
-              total="78%"
+              total="1.23"
               footer={
                 <div style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
                   <Trend flag="up" style={{ marginRight: 16 }}>
@@ -322,7 +335,9 @@ const Analysis: FC<AnalysisProps> = () => {
             </Suspense>
           </Col>
         </Row>
-        <h1>
+        <h1 style={{
+            marginTop: 24,
+          }}>
           直播
         </h1>
         <Row
@@ -384,13 +399,13 @@ const Analysis: FC<AnalysisProps> = () => {
             <ChartCard
               loading={loading}
               bordered={false}
-              title="运营活动效果"
+              title="运营活动效果(ROI)"
               action={
                 <Tooltip title="指标说明">
                   <InfoCircleOutlined />
                 </Tooltip>
               }
-              total="78%"
+              total="1.23"
               footer={
                 <div style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
                   <Trend flag="up" style={{ marginRight: 16 }}>
@@ -454,8 +469,10 @@ const Analysis: FC<AnalysisProps> = () => {
             </Suspense>
           </Col>
         </Row>
-        <h1>
-          广告投放
+        <h1 style={{
+            marginTop: 24,
+          }}>
+          自营
         </h1>
         <Row
           gutter={24}
@@ -473,17 +490,17 @@ const Analysis: FC<AnalysisProps> = () => {
                 </Tooltip>
               }
               loading={loading}
-              total={() => <>126560</>}
-              footer={<Field label="日增长" value={`${numeral(12423).format('0,0')}人`} />}
+              total={() => <>0</>}
+              footer={<Field label="日增长" value={`${numeral(0).format('0,0')}人`} />}
               contentHeight={46}
             >
               <Trend flag="up" style={{ marginRight: 16 }}>
                 周同比
-                <span className={styles.trendText}>12%</span>
+                <span className={styles.trendText}>0%</span>
               </Trend>
               <Trend flag="down">
                 日同比
-                <span className={styles.trendText}>11%</span>
+                <span className={styles.trendText}>0%</span>
               </Trend>
             </ChartCard>
           </Col>
@@ -497,8 +514,8 @@ const Analysis: FC<AnalysisProps> = () => {
                   <InfoCircleOutlined />
                 </Tooltip>
               }
-              total={numeral(8846).format('0,0')}
-              footer={<Field label="日访问量" value={numeral(1234).format('0,0')} />}
+              total={numeral(0).format('0,0')}
+              footer={<Field label="日访问量" value={numeral(0).format('0,0')} />}
               contentHeight={46}
             >
               <TinyArea
@@ -508,7 +525,7 @@ const Analysis: FC<AnalysisProps> = () => {
                 forceFit
                 yField="y"
                 smooth
-                data={data?.visitData}
+                //data={data?.visitData}
               />
             </ChartCard>
           </Col>
@@ -516,22 +533,22 @@ const Analysis: FC<AnalysisProps> = () => {
             <ChartCard
               loading={loading}
               bordered={false}
-              title="运营活动效果"
+              title="运营活动效果(ROI)"
               action={
                 <Tooltip title="指标说明">
                   <InfoCircleOutlined />
                 </Tooltip>
               }
-              total="78%"
+              total="0"
               footer={
                 <div style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
                   <Trend flag="up" style={{ marginRight: 16 }}>
                     周同比
-                    <span className={styles.trendText}>12%</span>
+                    <span className={styles.trendText}>0%</span>
                   </Trend>
                   <Trend flag="down">
                     日同比
-                    <span className={styles.trendText}>11%</span>
+                    <span className={styles.trendText}>0%</span>
                   </Trend>
                 </div>
               }
@@ -539,7 +556,7 @@ const Analysis: FC<AnalysisProps> = () => {
             >
               <Progress
                 height={46}
-                percent={0.78}
+                percent={0.0}
                 color="#13C2C2"
                 forceFit
                 size={8}
@@ -561,7 +578,41 @@ const Analysis: FC<AnalysisProps> = () => {
           style={{
             marginTop: 24,
           }}>
-            <Col xl={24} lg={24} md={24} sm={24} xs={24}>
+            <Col xl={10} lg={24} md={24} sm={24} xs={24}>
+              <Suspense fallback={null}>
+              <Streamway
+                dropdownGroup={dropdownGroup}
+                salesType={salesType}
+                loading={loading}
+                salesPieData={self || []}//streamPieData
+                handleChangeSalesType={handleChangeSalesType}
+              />
+            </Suspense>
+           
+          </Col>
+          
+          <Col xl={14} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+              <DataTrend
+                activeKey={activeKey}
+                loading={loading}
+                offlineData={data?.offlineData || []}
+                offlineChartData={data?.offlineChartDataEmpty || []}
+                handleTabChange={handleTabChange}
+              />
+            </Suspense>
+          </Col>
+          </Row>
+        
+        
+      </>
+    </GridContent>
+  );
+};
+
+export default Analysis;
+/*
+<Col xl={24} lg={24} md={24} sm={24} xs={24}>
               <Incomenewuser
                 loading={loading}
                 visitData2={data?.visitData2 || []}
@@ -577,15 +628,11 @@ const Analysis: FC<AnalysisProps> = () => {
               
               
             </Suspense>
-          </Row>
-        
-        
-      </>
-    </GridContent>
-  );
-};
 
-export default Analysis;
+
+*/
+
+
 /*<Suspense fallback={null}>
           <OfflineData
             activeKey={activeKey}

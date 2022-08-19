@@ -140,15 +140,15 @@ const salesTypeDataOffline = [
 const salesWayData = [
   {
     x: '电商',
-    y: 4544,
+    y: 50,
   },
   {
     x: '直播',
-    y: 3321,
+    y: 45,
   },
   {
     x: '自营',
-    y: 3113,
+    y: 5,
   },
   /*{
     x: '线下直营店',
@@ -216,56 +216,65 @@ const salesWayDataOffline = [
 const eshopData = [
   {
     x: '京东',
-    y: 4544,
+    y: 31,
   },
   {
     x: '淘宝',
-    y: 3321,
+    y: 23,
   },
   {
     x: '天猫',
-    y: 3113,
+    y: 15,
   },
   {
     x: '苏宁',
-    y: 2341,
+    y: 13,
   },
   {
     x: '拼多多',
-    y: 1231,
+    y: 12,
   },
   {
     x: '其他',
-    y: 1231,
+    y: 6,
   },
 ];
 const streamData = [
   {
     x: '抖音',
-    y: 4544,
+    y: 31,
   },
   {
     x: '快手',
-    y: 3321,
+    y: 23,
   },
   {
     x: '淘宝直播',
-    y: 3113,
+    y: 15,
   },
   {
     x: '小红书',
-    y: 2341,
+    y: 13,
   },
   {
     x: '得物',
-    y: 1231,
+    y: 12,
   },
   {
     x: '其他',
-    y: 1231,
+    y: 6,
   },
 ];
-
+const selfsales = [
+  {
+    x: '线上',
+    y: 50,
+  },
+  {
+    x: '线下',
+    y: 50,
+  },
+];
 const offlineData = [];
 for (let i = 0; i < 10; i += 1) {
   offlineData.push({
@@ -288,8 +297,8 @@ for (let i = 0; i < 20; i += 1) {
   });
 }
 const offlineChartData2 = [];
-for (let i = 0; i < 10; i += 1) {
-  const date = moment(new Date().getTime() + 60 * 60 * 24 * 1000 * i).format('MM/DD');
+for (let i = 0; i < 30; i += 1) {
+  const date = moment(new Date().getTime() - 60 * 60 * 24 * 1000 *30 + 60 * 60 * 24 * 1000 * i).format('MM/DD');
   offlineChartData2.push({
     date,
     type: '电商',
@@ -307,8 +316,8 @@ for (let i = 0; i < 10; i += 1) {
   });
 }
 const offlineChartData3 = [];
-for (let i = 0; i < 10; i += 1) {
-  const date = moment(new Date().getTime() +  60 * 60 * 24 * 1000 * i).format('MM/DD');
+for (let i = 0; i < 30; i += 1) {
+  const date = moment(new Date().getTime() - 60 * 60 * 24 * 1000 *30 +  60 * 60 * 24 * 1000 * i).format('MM/DD');
   offlineChartData3.push({
     date,
     type: '古越龙山',
@@ -317,17 +326,17 @@ for (let i = 0; i < 10; i += 1) {
   offlineChartData3.push({
     date,
     type: '女儿红',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 100) + i*20,
   });
   offlineChartData3.push({
     date,
     type: '沈永和',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 100) + i*20,
   });
   offlineChartData3.push({
     date,
     type: '状元红',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 100) + i*20,
   });
   offlineChartData3.push({
     date,
@@ -336,61 +345,75 @@ for (let i = 0; i < 10; i += 1) {
   });
 }
 const offlineChartData4 = [];//eshop
-for (let i = 0; i < 10; i += 1) {
-  const date = moment(new Date().getTime() +  60 * 60 * 24 * 1000 * i).format('MM/DD');
+for (let i = 0; i < 30; i += 1) {
+  const date = moment(new Date().getTime() - 60 * 60 * 24 * 1000 *30 +  60 * 60 * 24 * 1000 * i).format('MM/DD');
   offlineChartData4.push({
     date,
     type: '京东',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 30) + i*30,
   });
   offlineChartData4.push({
     date,
     type: '淘宝',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 30) + i*30,
   });
   offlineChartData4.push({
     date,
     type: '天猫',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 30) + i*20,
   });
   offlineChartData4.push({
     date,
     type: '苏宁',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 30) + i*20,
   });
   offlineChartData4.push({
     date,
     type: '拼多多',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 30) + i*10,
   });
 }
 const offlineChartData5 = [];//eshop
-for (let i = 0; i < 10; i += 1) {
-  const date = moment(new Date().getTime() +  60 * 60 * 24 * 1000 * i).format('MM/DD');
+for (let i = 0; i < 30; i += 1) {
+  const date = moment(new Date().getTime() - 60 * 60 * 24 * 1000 *30 + 60 * 60 * 24 * 1000 * i).format('MM/DD');
   offlineChartData5.push({
     date,
     type: '抖音',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 50) + i*20,
   });
   offlineChartData5.push({
     date,
     type: '快手',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 50) + i*20,
   });
   offlineChartData5.push({
     date,
     type: '淘宝直播',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 50) + i*10,
   });
   offlineChartData5.push({
     date,
     type: '小红书',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 50) + i*10,
   });
   offlineChartData5.push({
     date,
     type: '得物',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 50) + i*10,
+  });
+}
+const offlineChartDataEmpty = [];//shop
+for (let i = 0; i < 30; i += 1) {
+  const date = moment(new Date().getTime() - 60 * 60 * 24 * 1000 *30 + 60 * 60 * 24 * 1000 * i).format('MM/DD');
+  offlineChartDataEmpty.push({
+    date,
+    type: '线上',
+    value:0,
+  });
+  offlineChartDataEmpty.push({
+    date,
+    type: '线下',
+    value:0,
   });
 }
 const radarOriginData = [
@@ -453,6 +476,7 @@ const getFakeChartData: AnalysisData = {
   offlineChartData3,
   offlineChartData4,
   offlineChartData5,
+  offlineChartDataEmpty,
   salesTypeData,
   salesTypeDataOnline,
   salesTypeDataOffline,
@@ -462,6 +486,7 @@ const getFakeChartData: AnalysisData = {
   eshopData,
   streamData,
   radarData,
+  selfsales,
 };
 
 const fakeChartData = (_: Request, res: Response) => {

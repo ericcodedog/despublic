@@ -47,7 +47,7 @@ const Salesway = ({
     
     <div>
       <Text>销售额</Text>
-      <Donut
+      <Pie
         //forceFit
         height={360}
         radius={1}
@@ -58,18 +58,26 @@ const Salesway = ({
           visible: false,
         }}
         label={{
-          visible: true,
-          //type: 'spider',
-          formatter: (text, item) => {
-            //eslint-disable-next-line no-underscore-dangle
-            return `${item._origin.x}: ${numeral(item._origin.y).format('0,0')}`;
+          type:'inner',
+          style: {
+            fontSize: 15,
+            textAlign: 'center',
           },
+          //visible: true,
+          //type: 'spider',
+          formatter: (text, item ,percent) => {
+            //eslint-disable-next-line no-underscore-dangle
+            //return `${item._origin.x}: ${numeral(item._origin.y).format('0,0')}`;
+            return  `${item._origin.x}: ${(numeral(item._origin.y).format('0,0')*1).toFixed(0)}%`;
+          },
+          //content: ({ percent }) => `${item._origin.x}: ${(percent * 100).toFixed(0)}%`,
         }}
         statistic={
           {
-            totalLabel: '销售额',
+            totalLabel: '销售额比例',
           } as DonutConfig['statistic']
         }
+        
       />
       
     </div>
