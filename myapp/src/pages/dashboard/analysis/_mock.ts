@@ -449,7 +449,7 @@ const getFakeChartData: AnalysisData = {
 };*/
 import moment from 'moment';
 import type { Request, Response } from 'express';
-import type { AnalysisData, RadarData, DataItem } from './data';
+import type { AnalysisData, RadarData, DataItem } from './data.d';
 
 // mock data
 const visitData: DataItem[] = [];
