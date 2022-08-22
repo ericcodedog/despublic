@@ -9,6 +9,9 @@ export default {
   'menu.register-result': '注册结果',
   'menu.dashboard': '智能报表',//Dashboard可视化报表
   'menu.dashboard.analysis': '董事长分析页',//
+  'menu.dashboard.eshop': '电商分析页',//
+  'menu.dashboard.stream': '直播分析页',//
+  'menu.dashboard.ads': '广告分析页',//
   'menu.dashboard.monitor': '监控页',
   'menu.dashboard.workplace': '工作台',
   'menu.exception.403': '403',

@@ -81,6 +81,24 @@ export default defineConfig({
           component: './dashboard/analysis',
         },
         {
+          name: 'eshop',
+          icon: 'smile',
+          path: '/dashboard/eshop',
+          component: './dashboard/eshop',
+        },
+        {
+          name: 'stream',
+          icon: 'smile',
+          path: '/dashboard/stream',
+          component: './dashboard/stream',
+        },
+        {
+          name: 'ads',
+          icon: 'smile',
+          path: '/dashboard/ads',
+          component: './dashboard/ads',
+        },
+        {
           name: 'overview',
           icon: 'smile',
           path: '/dashboard/overview',
