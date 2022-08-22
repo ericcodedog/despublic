@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { Suspense, useState } from 'react';
 import { EllipsisOutlined, InfoCircleOutlined } from '@ant-design/icons';
-import { Card, Col, Dropdown, Menu, Row, Tooltip } from 'antd';
+import { Card, Col, Dropdown, Menu, Row, Tooltip ,Statistic} from 'antd';
 import { GridContent } from '@ant-design/pro-layout';
 import type { RadioChangeEvent } from 'antd/es/radio';
 import type { RangePickerProps } from 'antd/es/date-picker/generatePicker';
@@ -26,11 +26,18 @@ import type { AnalysisData } from './data.d';
 import styles from './style.less';
 import { Moment } from 'moment';
 import ActiveChart from '../monitor/components/ActiveChart';
+import ActiveChart1 from '../monitor/components/ActiveChart1';
 import { ChartCard, Field } from './components/Charts';
 import Yuan from './utils/Yuan';
 import Trend from './components/Trend';
 import numeral from 'numeral';
-import { Progress, TinyArea } from '@ant-design/charts';
+import {Gauge, Progress, TinyArea } from '@ant-design/charts';
+
+import Map from './components/Map';
+const { Countdown } = Statistic;
+const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30; // Moment is also OK
+
+
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
 
 type AnalysisProps = {
@@ -201,6 +208,42 @@ const Analysis: FC<AnalysisProps> = () => {
                 handleTabChange={handleTabChange}
               />
             </Suspense>
+          </Col>
+        </Row>
+        <Row gutter={24}>
+          <Col xl={18} lg={24} md={24} sm={24} xs={24} style={{ marginTop: 24, }}>
+            <Card title="活动实时交易情况" bordered={false}>
+              <Row>
+                <Col md={6} sm={12} xs={24}>
+                  <Statistic
+                    title="今日交易总额"
+                    suffix="元"
+                    value={numeral(124543233).format('0,0')}
+                  />
+                </Col>
+                <Col md={6} sm={12} xs={24}>
+                  <Statistic title="销售目标完成率" value="92%" />
+                </Col>
+                <Col md={6} sm={12} xs={24}>
+                  <Countdown title="活动剩余时间" value={deadline} format="HH:mm:ss:SSS" />
+                </Col>
+                <Col md={6} sm={12} xs={24}>
+                  <Statistic title="每秒交易总额" suffix="元" value={numeral(234).format('0,0')} />
+                </Col>
+              </Row>
+              <div className={styles.mapChart}>
+                <Map />
+              </div>
+            </Card>
+          </Col>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
+            <Card title="活动情况预测" style={{ marginTop: 24 }} bordered={false}>
+              <ActiveChart />
+            </Card>
+            <Card title="消费情况预测" style={{ marginBottom: 0 }} bordered={false}>
+              <ActiveChart1 />
+            </Card>
+            
           </Col>
         </Row>
         <h1 style={{

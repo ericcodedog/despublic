@@ -43,12 +43,14 @@ type SalesWay = 'all' | 'online' | 'stores';
 type Eshop = 'all' | 'online' | 'stores';
 type Streamway = 'all' | 'online' | 'stores';
 type Selfsales = 'all' | 'online' | 'stores';
+
 const Analysis: FC<AnalysisProps> = () => {
   const [salesType, setSalesType] = useState<SalesType>('all');
   const [salesWay, setSalesWay] = useState<SalesWay>('all');
   const [eshop , setEshop] = useState<Eshop>('all')
   const [streamway , setStream] = useState<Streamway>('all')
   const [selfway , setself] = useState<Selfsales>('all')
+  
   const [currentTabKey, setCurrentTabKey] = useState<string>('');
   const [rangePickerValue, setRangePickerValue] = useState<RangePickerValue>(
     getTimeDistance('year'),
@@ -110,6 +112,7 @@ const Analysis: FC<AnalysisProps> = () => {
   if (selfway == 'all'){
     self = data?.selfsales;
   }
+  
   const menu = (
     <Menu>
       <Menu.Item>操作一</Menu.Item>
@@ -179,16 +182,13 @@ const Analysis: FC<AnalysisProps> = () => {
         >
           <Col xl={8} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-              <Salesway
+              <Streamway
                 dropdownGroup={dropdownGroup}
-                salesType={salesWay}
+                salesType={salesType}
                 loading={loading}
-                //salesPieData={salesPieData || []}
-                salesPieData={salesWayPieData || []}
+                salesPieData={streamPieData || []}
                 handleChangeSalesType={handleChangeSalesType}
-                rangePickerValue={undefined} handleRangePickerChange={function (dates: RangeValue<Moment> | undefined, dateStrings: [string, string]): void {
-                  throw new Error('Function not implemented.');
-                } }                />
+              />
             </Suspense>
           </Col>
           <Col xl={16} lg={24} md={24} sm={24} xs={24}>
@@ -197,7 +197,7 @@ const Analysis: FC<AnalysisProps> = () => {
                 activeKey={activeKey}
                 loading={loading}
                 offlineData={data?.offlineData || []}
-                offlineChartData={data?.offlineChartData2 || []}
+                offlineChartData={data?.offlineChartData5 || []}
                 handleTabChange={handleTabChange}
               />
             </Suspense>

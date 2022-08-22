@@ -55,4 +55,6 @@ export interface AnalysisData {
   streamData: DataItem[];
   radarData: RadarData[];
   selfsales: DataItem[];
+  adspie: DataItem[];
+  adstrend: DataItem[];
 }

@@ -36,7 +36,7 @@ const SalesCard = ({
   handleRangePickerChange: (dates: RangePickerValue, dateStrings: [string, string]) => void;
   selectDate: (key: TimeType) => void;
 }) => (
-  <Card loading={loading} bordered={false} bodyStyle={{ padding: 0 }}>
+  <Card loading={loading} bordered={false} bodyStyle={{ padding: 24 }}>
     <div className={styles.salesCard}>
       <Tabs
         tabBarExtraContent={
@@ -63,7 +63,7 @@ const SalesCard = ({
           </div>
         }
         size="large"
-        tabBarStyle={{ marginBottom: 24 }}
+        tabBarStyle={{ marginTop: 24 }}
       >
         <TabPane tab="销售额" key="sales">
           <Row>

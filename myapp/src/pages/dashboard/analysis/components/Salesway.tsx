@@ -55,7 +55,7 @@ const Salesway = ({
         colorField="x"
         data={salesPieData as DataItem[]}
         legend={{
-          visible: false,
+          visible: true
         }}
         label={{
           type:'inner',

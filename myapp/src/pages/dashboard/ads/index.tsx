@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { Suspense, useState } from 'react';
 import { EllipsisOutlined, InfoCircleOutlined } from '@ant-design/icons';
-import { Card, Col, Dropdown, Menu, Row, Tooltip } from 'antd';
+import { Card, Col, Dropdown, Menu, Row, Tooltip} from 'antd';
 import { GridContent } from '@ant-design/pro-layout';
 import type { RadioChangeEvent } from 'antd/es/radio';
 import type { RangePickerProps } from 'antd/es/date-picker/generatePicker';
@@ -22,7 +22,7 @@ import { fakeChartData } from './service';
 import PageLoading from './components/PageLoading';
 import type { TimeType } from './components/SalesCard';
 import { getTimeDistance } from './utils/utils';
-import type { AnalysisData } from './data.d';
+import type { AnalysisData } from './data';
 import styles from './style.less';
 import { Moment } from 'moment';
 import ActiveChart from '../monitor/components/ActiveChart';
@@ -31,6 +31,9 @@ import Yuan from './utils/Yuan';
 import Trend from './components/Trend';
 import numeral from 'numeral';
 import { Progress, TinyArea } from '@ant-design/charts';
+
+
+
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
 
 type AnalysisProps = {
@@ -43,12 +46,14 @@ type SalesWay = 'all' | 'online' | 'stores';
 type Eshop = 'all' | 'online' | 'stores';
 type Streamway = 'all' | 'online' | 'stores';
 type Selfsales = 'all' | 'online' | 'stores';
+type Adsway = 'all' | 'online' | 'stores';
 const Analysis: FC<AnalysisProps> = () => {
   const [salesType, setSalesType] = useState<SalesType>('all');
   const [salesWay, setSalesWay] = useState<SalesWay>('all');
   const [eshop , setEshop] = useState<Eshop>('all')
   const [streamway , setStream] = useState<Streamway>('all')
   const [selfway , setself] = useState<Selfsales>('all')
+  const [adsway , setads] = useState<Adsway>('all')
   const [currentTabKey, setCurrentTabKey] = useState<string>('');
   const [rangePickerValue, setRangePickerValue] = useState<RangePickerValue>(
     getTimeDistance('year'),
@@ -109,6 +114,10 @@ const Analysis: FC<AnalysisProps> = () => {
   let self;
   if (selfway == 'all'){
     self = data?.selfsales;
+  }
+  let ads;
+  if (adsway == 'all'){
+    ads = data?.adspie;
   }
   const menu = (
     <Menu>
@@ -179,16 +188,13 @@ const Analysis: FC<AnalysisProps> = () => {
         >
           <Col xl={8} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-              <Salesway
+              <Streamway
                 dropdownGroup={dropdownGroup}
-                salesType={salesWay}
+                salesType={adsway}
                 loading={loading}
-                //salesPieData={salesPieData || []}
-                salesPieData={salesWayPieData || []}
+                salesPieData={ads || []}
                 handleChangeSalesType={handleChangeSalesType}
-                rangePickerValue={undefined} handleRangePickerChange={function (dates: RangeValue<Moment> | undefined, dateStrings: [string, string]): void {
-                  throw new Error('Function not implemented.');
-                } }                />
+              />
             </Suspense>
           </Col>
           <Col xl={16} lg={24} md={24} sm={24} xs={24}>
@@ -197,12 +203,13 @@ const Analysis: FC<AnalysisProps> = () => {
                 activeKey={activeKey}
                 loading={loading}
                 offlineData={data?.offlineData || []}
-                offlineChartData={data?.offlineChartData2 || []}
+                offlineChartData={data?.adstrend || []}
                 handleTabChange={handleTabChange}
               />
             </Suspense>
           </Col>
         </Row>
+        
         <h1 style={{
             marginTop: 24,
           }}>

@@ -36,13 +36,14 @@ const Streamway = ({
       <Text>销售额</Text>
       <Pie
         //forceFit
+        appendPadding={1} 
         height={360}
         radius={1}
         angleField="y"
         colorField="x"
         data={salesPieData as DataItem[]}
         legend={{
-          visible: false,
+          visible: true
         }}
         label={{
           type:'inner',

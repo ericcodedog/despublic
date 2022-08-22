@@ -7,19 +7,19 @@ import type { RadioChangeEvent } from 'antd/es/radio';
 import type { RangePickerProps } from 'antd/es/date-picker/generatePicker';
 import type moment from 'moment';
 import IntroduceRow from './components/IntroduceRow';
-import SalesCard from './components/SalesCard';
-import Incomenewuser from './components/Incomenewuser';
-import ProportionSales from './components/ProportionSales';
-import Salesway from './components/Salesway';
-import OfflineData from './components/OfflineData';
-import DataTrend from './components/SalesDataTrend';
-import Eshopway from './components/Eshopway';
-import Streamway from './components/Streamway';
-import FansRank from './components/FansRank';
+import SalesCard from './components/SalesCard';//'./components/SalesCard'; //
+import Incomenewuser from './components/Incomenewuser';//'./components/Incomenewuser';
+import ProportionSales from './components/ProportionSales'; //'./components/ProportionSales';
+import Salesway from './components/Salesway';// './components/Salesway';
+import OfflineData from './components/OfflineData';//'./components/OfflineData';
+import DataTrend from './components/SalesDataTrend'; //'./components/SalesDataTrend';
+import Eshopway from './components/Eshopway'; //'./components/Eshopway';
+import Streamway from './components/Streamway';//'./components/Streamway';
+import FansRank from './components/FansRank';//'./components/FansRank';
 import { useRequest } from 'umi';
 
 import { fakeChartData } from './service';
-import PageLoading from './components/PageLoading';
+import PageLoading from './components/PageLoading';//'./components/PageLoading';
 import type { TimeType } from './components/SalesCard';
 import { getTimeDistance } from './utils/utils';
 import type { AnalysisData } from './data.d';
@@ -179,16 +179,13 @@ const Analysis: FC<AnalysisProps> = () => {
         >
           <Col xl={8} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-              <Salesway
+            <Eshopway
                 dropdownGroup={dropdownGroup}
-                salesType={salesWay}
+                salesType={eshop}
                 loading={loading}
-                //salesPieData={salesPieData || []}
-                salesPieData={salesWayPieData || []}
+                salesPieData={eshopPieData || []}
                 handleChangeSalesType={handleChangeSalesType}
-                rangePickerValue={undefined} handleRangePickerChange={function (dates: RangeValue<Moment> | undefined, dateStrings: [string, string]): void {
-                  throw new Error('Function not implemented.');
-                } }                />
+              />
             </Suspense>
           </Col>
           <Col xl={16} lg={24} md={24} sm={24} xs={24}>
@@ -197,7 +194,7 @@ const Analysis: FC<AnalysisProps> = () => {
                 activeKey={activeKey}
                 loading={loading}
                 offlineData={data?.offlineData || []}
-                offlineChartData={data?.offlineChartData2 || []}
+                offlineChartData={data?.offlineChartData4 || []}
                 handleTabChange={handleTabChange}
               />
             </Suspense>
@@ -306,6 +303,41 @@ const Analysis: FC<AnalysisProps> = () => {
             </ChartCard>
           </Col>
         </Row>
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+          <Col xl={24} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+                  <SalesCard
+                    rangePickerValue={rangePickerValue}
+                    salesData={data?.salesData || []}
+                    isActive={isActive}
+                    handleRangePickerChange={handleRangePickerChange}
+                    loading={loading}
+                    selectDate={selectDate}
+                  />
+                </Suspense>
+          </Col>
+          <Col xl={24} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+                  <FansRank
+                    rangePickerValue={rangePickerValue}
+                    salesData={data?.salesData2 || []}
+                    isActive={isActive}
+                    handleRangePickerChange={handleRangePickerChange}
+                    loading={loading}
+                    selectDate={selectDate}
+                  />
+                </Suspense>
+          </Col>
+        
+
+
+        </Row>
+        
         <Row
           gutter={24}
           style={{
