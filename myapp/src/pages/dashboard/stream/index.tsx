@@ -312,6 +312,40 @@ const Analysis: FC<AnalysisProps> = () => {
             marginTop: 24,
           }}
         >
+          <Col xl={24} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+                  <SalesCard
+                    rangePickerValue={rangePickerValue}
+                    salesData={data?.salesData || []}
+                    isActive={isActive}
+                    handleRangePickerChange={handleRangePickerChange}
+                    loading={loading}
+                    selectDate={selectDate}
+                  />
+                </Suspense>
+          </Col>
+          <Col xl={24} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+                  <FansRank
+                    rangePickerValue={rangePickerValue}
+                    salesData={data?.salesData2 || []}
+                    isActive={isActive}
+                    handleRangePickerChange={handleRangePickerChange}
+                    loading={loading}
+                    selectDate={selectDate}
+                  />
+                </Suspense>
+          </Col>
+        
+
+
+        </Row>
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
           <Col xl={14} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
               <DataTrend
