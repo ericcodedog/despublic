@@ -16,6 +16,7 @@ import DataTrend from './components/SalesDataTrend'; //'./components/SalesDataTr
 import Eshopway from './components/Eshopway'; //'./components/Eshopway';
 import Streamway from './components/Streamway';//'./components/Streamway';
 import FansRank from './components/FansRank';//'./components/FansRank';
+import EshopCard from './components/EshopCard';
 import { useRequest } from 'umi';
 
 import { fakeChartData } from './service';
@@ -311,7 +312,7 @@ const Analysis: FC<AnalysisProps> = () => {
         >
           <Col xl={24} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-                  <SalesCard
+                  <EshopCard
                     rangePickerValue={rangePickerValue}
                     salesData={data?.salesData || []}
                     isActive={isActive}
@@ -337,7 +338,52 @@ const Analysis: FC<AnalysisProps> = () => {
 
 
         </Row>
+
         
+        
+      </>
+    </GridContent>
+  );
+};
+
+export default Analysis;
+/*
+<Col xl={24} lg={24} md={24} sm={24} xs={24}>
+              <Incomenewuser
+                loading={loading}
+                visitData2={data?.visitData2 || []}
+                searchData={data?.searchData || []}
+                dropdownGroup={dropdownGroup}
+                rangePickerValue={rangePickerValue}
+                isActive={isActive}
+                handleRangePickerChange={handleRangePickerChange}
+                selectDate={selectDate}
+              />
+            </Col>
+            <Suspense fallback={null}>
+              
+              
+            </Suspense>
+
+
+*/
+
+
+/*<Suspense fallback={null}>
+          <OfflineData
+            activeKey={activeKey}
+            loading={loading}
+            offlineData={data?.offlineData || []}
+            offlineChartData={data?.offlineChartData || []}
+            handleTabChange={handleTabChange}
+          />
+        </Suspense>
+        <Card title="活动情况预测" style={{ marginBottom: 24 }} bordered={false}>
+              <ActiveChart />
+            </Card>
+            */
+           /*
+                  
         <Row
           gutter={24}
           style={{
@@ -635,46 +681,5 @@ const Analysis: FC<AnalysisProps> = () => {
             </Suspense>
           </Col>
           </Row>
-        
-        
-      </>
-    </GridContent>
-  );
-};
-
-export default Analysis;
-/*
-<Col xl={24} lg={24} md={24} sm={24} xs={24}>
-              <Incomenewuser
-                loading={loading}
-                visitData2={data?.visitData2 || []}
-                searchData={data?.searchData || []}
-                dropdownGroup={dropdownGroup}
-                rangePickerValue={rangePickerValue}
-                isActive={isActive}
-                handleRangePickerChange={handleRangePickerChange}
-                selectDate={selectDate}
-              />
-            </Col>
-            <Suspense fallback={null}>
-              
-              
-            </Suspense>
-
-
-*/
-
-
-/*<Suspense fallback={null}>
-          <OfflineData
-            activeKey={activeKey}
-            loading={loading}
-            offlineData={data?.offlineData || []}
-            offlineChartData={data?.offlineChartData || []}
-            handleTabChange={handleTabChange}
-          />
-        </Suspense>
-        <Card title="活动情况预测" style={{ marginBottom: 24 }} bordered={false}>
-              <ActiveChart />
-            </Card>
-            */
+          
+           */
