@@ -166,6 +166,15 @@ const Analysis: FC<AnalysisProps> = () => {
 */ 
 /*
 
+<Col xl={6} lg={24} md={24} sm={24} xs={24}>
+            <Card title="活动情况预测" style={{ marginTop: 24 }} bordered={false}>
+              <ActiveChart />
+            </Card>
+            <Card title="消费情况预测" style={{ marginBottom: 0 }} bordered={false}>
+              <ActiveChart1 />
+            </Card>
+            
+          </Col>
 
 
 */
@@ -211,7 +220,7 @@ const Analysis: FC<AnalysisProps> = () => {
           </Col>
         </Row>
         <Row gutter={24}>
-          <Col xl={18} lg={24} md={24} sm={24} xs={24} style={{ marginTop: 24, }}>
+          <Col xl={24} lg={24} md={24} sm={24} xs={24} style={{ marginTop: 24, }}>
             <Card title="活动实时交易情况" bordered={false}>
               <Row>
                 <Col md={6} sm={12} xs={24}>
@@ -236,15 +245,7 @@ const Analysis: FC<AnalysisProps> = () => {
               </div>
             </Card>
           </Col>
-          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
-            <Card title="活动情况预测" style={{ marginTop: 24 }} bordered={false}>
-              <ActiveChart />
-            </Card>
-            <Card title="消费情况预测" style={{ marginBottom: 0 }} bordered={false}>
-              <ActiveChart1 />
-            </Card>
-            
-          </Col>
+          
         </Row>
         <h1 style={{
             marginTop: 24,

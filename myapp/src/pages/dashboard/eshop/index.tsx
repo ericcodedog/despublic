@@ -322,18 +322,7 @@ const Analysis: FC<AnalysisProps> = () => {
                   />
                 </Suspense>
           </Col>
-          <Col xl={24} lg={24} md={24} sm={24} xs={24}>
-            <Suspense fallback={null}>
-                  <FansRank
-                    rangePickerValue={rangePickerValue}
-                    salesData={data?.salesData2 || []}
-                    isActive={isActive}
-                    handleRangePickerChange={handleRangePickerChange}
-                    loading={loading}
-                    selectDate={selectDate}
-                  />
-                </Suspense>
-          </Col>
+          
         
 
 
@@ -347,7 +336,18 @@ const Analysis: FC<AnalysisProps> = () => {
 };
 
 export default Analysis;
-/*
+/*<Col xl={24} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+                  <FansRank
+                    rangePickerValue={rangePickerValue}
+                    salesData={data?.salesData2 || []}
+                    isActive={isActive}
+                    handleRangePickerChange={handleRangePickerChange}
+                    loading={loading}
+                    selectDate={selectDate}
+                  />
+                </Suspense>
+          </Col>
 <Col xl={24} lg={24} md={24} sm={24} xs={24}>
               <Incomenewuser
                 loading={loading}
