@@ -1,4 +1,4 @@
-/*import moment from 'moment';
+import moment from 'moment';
 import type { Request, Response } from 'express';
 import type { AnalysisData, RadarData, DataItem } from './data.d';
 
@@ -524,4 +524,3 @@ const fakeChartData = (_: Request, res: Response) => {
 export default {
   'GET  /api/fake_analysis_chart_data': fakeChartData,
 };
-*/

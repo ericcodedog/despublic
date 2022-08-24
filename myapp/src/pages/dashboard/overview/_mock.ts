@@ -1,4 +1,4 @@
-import moment from 'moment';
+/*import moment from 'moment';
 import type { Request, Response } from 'express';
 import type { AnalysisData, RadarData, DataItem } from './data.d';
 
@@ -6,7 +6,7 @@ import type { AnalysisData, RadarData, DataItem } from './data.d';
 const visitData: DataItem[] = [];
 const beginDay = new Date().getTime();
 
-const fakeY = [70, 5, 4, 2, 4, 7, 5, 6, 5, 9, 6, 3, 1, 5, 3, 6, 5];//
+const fakeY = [7, 5, 4, 2, 4, 7, 5, 6, 5, 9, 6, 3, 1, 5, 3, 6, 5];//
 for (let i = 0; i < fakeY.length; i += 1) {
   visitData.push({
     x: moment(new Date(beginDay + 1000 * 60 * 60 * 24 * i)).format('YYYY-MM-DD'),
@@ -218,3 +218,4 @@ const fakeChartData = (_: Request, res: Response) => {
 export default {
   'GET  /api/fake_analysis_chart_data': fakeChartData,
 };
+*/

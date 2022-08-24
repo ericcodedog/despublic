@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Suspense, useState } from 'react';
 import { EllipsisOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import { Card, Col, Dropdown, Menu, Row, Tooltip ,Statistic} from 'antd';
@@ -22,7 +22,7 @@ import { fakeChartData } from './service';
 import PageLoading from './components/PageLoading';
 import type { TimeType } from './components/SalesCard';
 import { getTimeDistance } from './utils/utils';
-import type { AnalysisData } from './data';
+import type { AnalysisData } from '../data';
 import styles from './style.less';
 import { Moment } from 'moment';
 import ActiveChart from '../monitor/components/ActiveChart';
@@ -32,8 +32,101 @@ import Yuan from './utils/Yuan';
 import Trend from './components/Trend';
 import numeral from 'numeral';
 import {Gauge, Progress, TinyArea } from '@ant-design/charts';
-
+import { ChoroplethMap } from '@ant-design/maps';
 import Map from './components/Map';
+import { Scene, PolygonLayer, LineLayer, PointLayer } from '@antv/l7';
+import { Mapbox } from '@antv/l7-maps';
+
+/*const scene = new Scene({
+  id: 'map',
+  map: new Mapbox({
+    pitch: 0,
+    style: 'blank',
+    center: [ 116.368652, 39.93866 ],
+    zoom: 10.07
+  })
+});
+scene.on('loaded', () => {
+  fetch(
+    'https://gw.alipayobjects.com/os/bmw-prod/707cd4be-8ffe-4778-b863-3335eefd5fd5.json' //  获取行政区划P噢利用
+  )
+    .then(res => res.json())
+    .then(data => {
+      const chinaPolygonLayer = new PolygonLayer({
+        autoFit: true
+      })
+        .source(data)
+        .color(
+          'name',
+          [ '#fee5d9', '#fcae91', '#fb6a4a', '#de2d26', '#a50f15' ]
+        )
+        .shape('fill')
+        .style({
+          opacity: 1
+        });
+      //  图层边界
+      const layer2 = new LineLayer({
+        zIndex: 2
+      })
+        .source(data)
+        .color('#fff')
+        .size(0.5)
+        .style({
+          opacity: 1
+        });
+
+      scene.addLayer(chinaPolygonLayer);
+      scene.addLayer(layer2);
+    });
+
+  fetch(
+    'https://gw.alipayobjects.com/os/bmw-prod/ab42a860-f874-4452-a8b6-4168a36c1f2c.json' //  国界线
+  ).then(res => res.json())
+    .then(data => {
+      const boundaries = new LineLayer({
+        zIndex: 2
+      })
+        .source(data)
+        .color('rgb(93,112,146)')
+        .size(0.6)
+        .style({
+          opacity: 1
+        });
+
+      scene.addLayer(boundaries);
+    });
+
+  fetch(
+    'https://gw.alipayobjects.com/os/bmw-prod/d09a3567-8c0e-4711-b8b8-cd82e8870e4b.json' //  标注数据
+  ).then(res => res.json())
+    .then(data => {
+      const labelLayer = new PointLayer({
+        zIndex: 5
+      })
+        .source(data, {
+          parser: {
+            type: 'json',
+            coordinates: 'center'
+          }
+        })
+        .color('#fff')
+        .shape('name', 'text')
+        .size(12)
+        .style({
+          opacity: 1,
+          stroke: '#fff',
+          strokeWidth: 0,
+          padding: [ 5, 5 ],
+          textAllowOverlap: false
+        });
+
+      scene.addLayer(labelLayer);
+    });
+});*/
+
+
+
+
 const { Countdown } = Statistic;
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30; // Moment is also OK
 
@@ -141,6 +234,162 @@ const Analysis: FC<AnalysisProps> = () => {
   };
 
   const activeKey = currentTabKey || (data?.offlineData[0] && data?.offlineData[0].name) || '';
+
+
+  const DemoChoroplethMap = () => {
+  const config = {
+    map: {
+      type: 'mapbox',
+      style: 'blank',
+      center: [120.19382669582967, 30.258134],
+      zoom: 3,
+      pitch: 0,
+    },
+    source: {
+      data: [],
+      joinBy: {
+        sourceField: 'code',
+        geoField: 'adcode',
+      },
+    },
+    viewLevel: {
+      level: 'world',
+      adcode: 'all',
+    },
+    autoFit: true,
+    color: {
+      field: 'name',
+      value: ['#B8E1FF', '#7DAAFF', '#3D76DD', '#0047A5', '#001D70'],
+    },
+    style: {
+      opacity: 1,
+      stroke: '#ccc',
+      lineWidth: 0.6,
+      lineOpacity: 1,
+    },
+    chinaBorder: false,
+    label: {
+      visible: true,
+      field: 'name',
+      style: {
+        fill: '#000',
+        opacity: 0.8,
+        fontSize: 10,
+        stroke: '#fff',
+        strokeWidth: 1.5,
+        textAllowOverlap: false,
+        padding: [5, 5],
+      },
+    },
+    state: {
+      active: true,
+      select: {
+        stroke: 'black',
+        lineWidth: 1.5,
+        lineOpacity: 0.8,
+      },
+    },
+    tooltip: {
+      items: ['name', 'adcode', 'value'],
+    },
+    zoom: {
+      position: 'bottomright',
+    },
+    legend: {
+      position: 'bottomleft',
+    },
+  };
+  return <ChoroplethMap {...config} />;
+};
+const DemoChoroplethMapc = () => {
+  const [list, setData] = useState([]);
+
+  useEffect(() => {
+    asyncFetch();
+  }, []);
+
+  const asyncFetch = () => {
+    fetch('https://gw.alipayobjects.com/os/alisis/geo-data-v0.1.2/administrative-data/area-list.json')
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => {
+        console.log('fetch data failed', error);
+      });
+  };
+  const data = list
+    .filter(({ level }) => level === 'city')
+    .map((item) =>
+      Object.assign({}, item, {
+        value: Math.random() * 5000,
+      }),
+    );
+  const config = {
+    map: {
+      type: 'mapbox',
+      style: 'blank',
+      center: [120.19382669582967, 30.258134],
+      zoom: 3,
+      pitch: 0,
+    },
+    source: {
+      data: data,
+      joinBy: {
+        sourceField: 'adcode',
+        geoField: 'adcode',
+      },
+    },
+    viewLevel: {
+      level: 'country',
+      adcode: 100000,
+      granularity: 'city',
+    },
+    autoFit: true,
+    color: {
+      field: 'value',
+      value: ['#B8E1FF', '#7DAAFF', '#3D76DD', '#0047A5', '#001D70'],
+      scale: {
+        type: 'quantize',
+      },
+    },
+    style: {
+      opacity: 1,
+      stroke: '#ccc',
+      lineWidth: 0.6,
+      lineOpacity: 1,
+    },
+    label: {
+      visible: true,
+      field: 'name',
+      style: {
+        fill: '#000',
+        opacity: 0.8,
+        fontSize: 10,
+        stroke: '#fff',
+        strokeWidth: 1.5,
+        textAllowOverlap: false,
+        padding: [5, 5],
+      },
+    },
+    state: {
+      active: {
+        stroke: 'black',
+        lineWidth: 1,
+      },
+    },
+    tooltip: {
+      items: ['name', 'adcode', 'value'],
+    },
+    zoom: {
+      position: 'bottomright',
+    },
+    legend: {
+      position: 'bottomleft',
+    },
+  };
+
+  return <ChoroplethMap {...config} />;
+};
+
 /*
 <Suspense fallback={null}>
           <SalesCard
@@ -178,6 +427,7 @@ const Analysis: FC<AnalysisProps> = () => {
 
 
 */
+
   return (
     <GridContent>
       <>
@@ -240,9 +490,33 @@ const Analysis: FC<AnalysisProps> = () => {
                   <Statistic title="每秒交易总额" suffix="元" value={numeral(234).format('0,0')} />
                 </Col>
               </Row>
+              <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+          <Col xl={8} lg={24} md={24} sm={24} xs={24} style={{ marginTop: 24, }}>
               <div className={styles.mapChart}>
-                <Map />
+                <DemoChoroplethMap/>
               </div>
+          </Col>
+           <Col xl={16} lg={24} md={24} sm={24} xs={24} style={{ marginTop: 24, }}>
+            <div className={styles.mapChart}>
+                <DemoChoroplethMapc/>
+              </div>
+          </Col>
+        </Row>
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+         
+              
+        </Row>
+              
             </Card>
           </Col>
           
