@@ -325,13 +325,15 @@ const Analysis: FC<AnalysisProps> = () => {
                   />
                 </Suspense>
           </Col>
-          
-        
-
-
         </Row>
 
-        
+        <OfflineData
+            activeKey={activeKey}
+            loading={loading}
+            offlineData={data?.offlineData || []}
+            offlineChartData={data?.offlineChartData || []}
+            handleTabChange={handleTabChange}
+          />
         
       </>
     </GridContent>

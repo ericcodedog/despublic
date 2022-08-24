@@ -57,7 +57,7 @@ export interface AnalysisData {
   selfsales: DataItem[];
 }
 */
-import { DataItem } from '@antv/g2plot/esm/interface/config';
+/*import { DataItem } from '@antv/g2plot/esm/interface/config';
 
 export { DataItem };
 
@@ -134,4 +134,4 @@ export interface AnalysisData {
   streamData: DataItem[];
   radarData: RadarData[];
   selfsales: DataItem[];
-}
+}*/
