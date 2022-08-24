@@ -207,7 +207,7 @@ const Analysis: FC<AnalysisProps> = () => {
         <h1 style={{
             marginTop: 24,
           }}>
-          电商
+          直播
         </h1>
         <Row
           gutter={24}

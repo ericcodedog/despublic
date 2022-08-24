@@ -618,7 +618,7 @@ const DemoArea = () => {
         <h1 style={{
             marginTop: 24,
           }}>
-          电商
+          广告
         </h1>
         <Row
           gutter={24}

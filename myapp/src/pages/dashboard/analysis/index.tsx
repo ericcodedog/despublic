@@ -921,8 +921,139 @@ const DemoChoroplethMapc = () => {
             </Suspense>
           </Col>
           </Row>
+          <h1 style={{
+            marginTop: 24,
+          }}>
+          品牌
+        </h1>
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+            <ChartCard
+              bordered={false}
+              title="新增客户"
+              action={
+                <Tooltip title="指标说明">
+                  <InfoCircleOutlined />
+                </Tooltip>
+              }
+              loading={loading}
+              total={() => <>126560</>}
+              footer={<Field label="日增长" value={`${numeral(12423).format('0,0')}人`} />}
+              contentHeight={46}
+            >
+              <Trend flag="up" style={{ marginRight: 16 }}>
+                周同比
+                <span className={styles.trendText}>12%</span>
+              </Trend>
+              <Trend flag="down">
+                日同比
+                <span className={styles.trendText}>11%</span>
+              </Trend>
+            </ChartCard>
+          </Col>
+          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+            <ChartCard
+              bordered={false}
+              loading={loading}
+              title="访问量"
+              action={
+                <Tooltip title="指标说明">
+                  <InfoCircleOutlined />
+                </Tooltip>
+              }
+              total={numeral(8846).format('0,0')}
+              footer={<Field label="日访问量" value={numeral(1234).format('0,0')} />}
+              contentHeight={46}
+            >
+              <TinyArea
+                color="#975FE4"
+                xField="x"
+                height={46}
+                forceFit
+                yField="y"
+                smooth
+                data={data?.visitData}
+              />
+            </ChartCard>
+          </Col>
+          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+            <ChartCard
+              loading={loading}
+              bordered={false}
+              title="运营活动效果(ROI)"
+              action={
+                <Tooltip title="指标说明">
+                  <InfoCircleOutlined />
+                </Tooltip>
+              }
+              total="1.23"
+              footer={
+                <div style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
+                  <Trend flag="up" style={{ marginRight: 16 }}>
+                    周同比
+                    <span className={styles.trendText}>12%</span>
+                  </Trend>
+                  <Trend flag="down">
+                    日同比
+                    <span className={styles.trendText}>11%</span>
+                  </Trend>
+                </div>
+              }
+              contentHeight={46}
+            >
+              <Progress
+                height={46}
+                percent={0.78}
+                color="#13C2C2"
+                forceFit
+                size={8}
+                marker={[
+                  {
+                    value: 0.8,
+                    style: {
+                      stroke: '#13C2C2',
+                    },
+                  },
+                ]}
+              />
+            </ChartCard>
+          </Col>
+        </Row>
         
-        
+        <Row gutter={24}
+          style={{
+            marginTop: 24,
+          }}>
+            <Col xl={10} lg={24} md={24} sm={24} xs={24}>
+              <Suspense fallback={null}>
+              <Streamway
+                dropdownGroup={dropdownGroup}
+                salesType={salesType}
+                loading={loading}
+                salesPieData={salesPieData || []}//streamPieData
+                handleChangeSalesType={handleChangeSalesType}
+              />
+            </Suspense>
+           
+          </Col>
+          
+          <Col xl={14} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+              <DataTrend
+                activeKey={activeKey}
+                loading={loading}
+                offlineData={data?.offlineData || []}
+                offlineChartData={data?.offlineChartData3|| []}
+                handleTabChange={handleTabChange}
+              />
+            </Suspense>
+          </Col>
+          </Row>
       </>
     </GridContent>
   );
