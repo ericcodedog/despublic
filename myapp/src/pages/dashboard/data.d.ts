@@ -109,7 +109,11 @@ export type RadarData = {
   label: string;
   value: number;
 };
-
+//export interface scatterData={};
+/*Title: string;
+  Genre: string;
+  Revenue: number;
+  Rating: number;*/
 export interface AnalysisData {
   visitData: DataItem[];
   visitData2: DataItem[];
@@ -134,6 +138,7 @@ export interface AnalysisData {
   streamData: DataItem[];
   radarData: RadarData[];
   selfsales: DataItem[];
-  adspie: [],
-  adstrend: []
+  adspie: DataItem[],
+  adstrend: DataItem[],
+  scatterData: DataItem[],
 }

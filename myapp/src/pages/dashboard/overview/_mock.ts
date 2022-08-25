@@ -194,7 +194,92 @@ radarOriginData.forEach((item) => {
     }
   });
 });
-
+const scatterData=[
+  {
+    Title: "Guardians of the Galaxy",
+    Genre: "古越龙山",
+    Revenue: 333.13,
+    Rating: 8.1
+  },
+  {
+    Title: "Prometheus",
+    Genre: "女儿红",
+    Revenue: 126.46,
+    Rating: 7
+  },
+  {
+    Title: "Split",
+    Genre: "状元红",
+    Revenue: 138.12,
+    Rating: 7.3
+  },
+  {
+    Title: "Sing",
+    Genre: "鉴湖",
+    Revenue: 270.32,
+    Rating: 7.2
+  },
+  {
+    Title: "Suicide Squad",
+    Genre: "古越龙山",
+    Revenue: 325.02,
+    Rating: 6.2
+  },
+  {
+    Title: "The Great Wall",
+    Genre: "古越龙山",
+    Revenue: 45.13,
+    Rating: 6.1
+  },
+  {
+    Title: "La La Land",
+    Genre: "沈永和",
+    Revenue: 151.06,
+    Rating: 8.3
+  },
+  {
+    Title: "Mindhorn",
+    Genre: "沈永和",
+    Revenue: null,
+    Rating: 6.4
+  },
+  {
+    Title: "The Lost City of Z",
+    Genre: "古越龙山",
+    Revenue: 8.01,
+    Rating: 7.1
+  },
+  {
+    Title: "Passengers",
+    Genre: "女儿红",
+    Revenue: 100.01,
+    Rating: 7
+  },
+  {
+    Title: "Fantastic Beasts and Where to Find Them",
+    Genre: "女儿红",
+    Revenue: 234.02,
+    Rating: 7.5
+  },
+  {
+    Title: "Hidden Figures",
+    Genre: "原酒",
+    Revenue: 169.27,
+    Rating: 7.8
+  },
+  {
+    Title: "Rogue One",
+    Genre: "古越龙山",
+    Revenue: 532.17,
+    Rating: 7.9
+  },
+  {
+    Title: "Moana",
+    Genre: "鉴湖",
+    Revenue: 248.75,
+    Rating: 7.7
+  },
+];
 const getFakeChartData: AnalysisData = {
   visitData,
   visitData3,
@@ -207,6 +292,7 @@ const getFakeChartData: AnalysisData = {
   salesTypeDataOnline,
   salesTypeDataOffline,
   radarData,
+  scatterData: []
 };
 
 const fakeChartData = (_: Request, res: Response) => {

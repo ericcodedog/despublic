@@ -31,7 +31,12 @@ export type RadarData = {
   label: string;
   value: number;
 };
-
+export interface scatterData{
+  Title: string;
+  Genre: string;
+  Revenue: number;
+  Rating: number;
+}
 export interface AnalysisData {
   visitData: DataItem[];
   visitData3: DataItem[];
@@ -44,4 +49,5 @@ export interface AnalysisData {
   salesTypeDataOnline: DataItem[];
   salesTypeDataOffline: DataItem[];
   radarData: RadarData[];
+  scatterData: DataItem[];
 }
