@@ -32,6 +32,8 @@ import Yuan from './utils/Yuan';
 import Trend from './components/Trend';
 import numeral from 'numeral';
 import { Progress, TinyArea } from '@ant-design/charts';
+import { Mix } from '@ant-design/plots';
+import { DataView } from '@antv/data-set';
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
 
 type AnalysisProps = {
@@ -166,6 +168,239 @@ const Analysis: FC<AnalysisProps> = () => {
 
 
 */
+const DemoMix = () => {
+  const data = [
+    ['其他', 66, 30, 6, 10, 5, 15],
+    ['鉴湖', 102, 37, 24, 15, 20, 6],
+    ['状元红', 49, 9, 7, 15, 13, 5],
+    ['沈永和', 75, 20, 14, 20, 8, 13],
+    ['女儿红', 44, 15, 12, 9, 3, 5],
+    ['古越龙山', 108, 20, 50, 14, 8, 16],
+  ];
+  const yearData = [
+    ['京东', 60, 176, 35, 25, 2017],
+    ['天猫', 51, 136, 25, 26, 2018],
+    ['淘宝', 73, 196, 35, 38, 2019],
+    ['苏宁', 84, 315, 43, 41, 2020],
+    ['拼多多', 79, 203, 36, 33, 2021],
+    ['其他', 89, 286, 41, 48, 2022],
+  ];
+  const config = {
+    height: 500,
+    padding: 'auto',
+    tooltip: {
+      showMarkers: false,
+    },
+    views: [
+      {
+        data: data.map((d) => ({
+          type: d[0],
+          value: d[1],
+        })),
+        region: {
+          start: {
+            x: 0,
+            y: 0,
+          },
+          end: {
+            x: 0.5,
+            y: 0.4,
+          },
+        },
+        coordinate: {
+          type: 'theta',
+          cfg: {
+            radius: 0.85,
+          },
+        },
+        axes: {
+          value: {
+            title: {
+              text: 'Drinks',
+            },
+            grid: null,
+            tickLine: null,
+            line: false,
+            ticks: false,
+          },
+        },
+        geometries: [
+          {
+            type: 'interval',
+            xField: '1',
+            yField: 'value',
+            colorField: 'type',
+            mapping: {},
+            adjust: {
+              type: 'stack',
+            },
+          },
+        ],
+        interactions: [
+          {
+            type: 'element-active',
+          },
+          {
+            type: 'association-highlight',
+          },
+        ],
+      },
+      {
+        data: new DataView()
+          .source(
+            data.map((d) => ({
+              type: d[0],
+              京东: d[2],
+              淘宝: d[3],
+              天猫: d[4],
+              苏宁: d[5],
+              拼多多: d[6],
+            })),
+          )
+          .transform({
+            type: 'fold',
+            fields: ['京东', '淘宝', '天猫', '苏宁', '拼多多'],
+            key: 'gender',
+            value: 'value',
+          }).rows,
+        region: {
+          start: {
+            x: 0.5,
+            y: 0,
+          },
+          end: {
+            x: 1,
+            y: 0.45,
+          },
+        },
+        coordinate: {
+          cfg: {
+            isTransposed: true,
+          },
+        },
+        axes: {
+          value: true,
+        },
+        geometries: [
+          {
+            type: 'interval',
+            xField: 'type',
+            yField: 'value',
+            colorField: 'gender',
+            mapping: {},
+            adjust: {
+              type: 'dodge',
+              marginRatio: 0,
+            },
+          },
+        ],
+      },
+      {
+        data: yearData.map((d) => ({
+          year: d[5],
+          ordered: d[1],
+        })),
+        region: {
+          start: {
+            x: 0,
+            y: 0.52,
+          },
+          end: {
+            x: 0.48,
+            y: 1,
+          },
+        },
+        axes: {
+          year: {
+            title: {
+              text: 'Drinks ordered',
+            },
+          },
+        },
+        meta: {
+          ordered: {
+            min: 40,
+            max: 90,
+          },
+        },
+        geometries: [
+          {
+            type: 'area',
+            xField: 'year',
+            yField: 'ordered',
+            mapping: {},
+          },
+          {
+            type: 'line',
+            xField: 'year',
+            yField: 'ordered',
+            mapping: {
+              style: {
+                lineWidth: 0.5,
+              },
+            },
+          },
+        ],
+      },
+      {
+        data: new DataView()
+          .source(
+            yearData.map((d) => ({
+              year: d[0],
+              male: d[3],
+              female: d[4],
+            })),
+          )
+          .transform({
+            type: 'fold',
+            fields: ['male', 'female'],
+            key: 'gender',
+            value: 'turnout',
+          }).rows,
+        region: {
+          start: {
+            x: 0.52,
+            y: 0.52,
+          },
+          end: {
+            x: 1,
+            y: 1,
+          },
+        },
+        axes: {
+          year: {
+            title: {
+              text: 'Turnout by gender',
+            },
+          },
+        },
+        geometries: [
+          {
+            type: 'interval',
+            xField: 'year',
+            yField: 'turnout',
+            colorField: 'gender',
+            adjust: {
+              type: 'dodge',
+              marginRatio: 0,
+            },
+            mapping: {},
+          },
+        ],
+        interactions: [
+          {
+            type: 'element-active',
+          },
+          {
+            type: 'association-sibling-highlight',
+          },
+        ],
+      },
+    ],
+  };
+  return <Mix {...config} />;
+};
+
   return (
     <GridContent>
       <>
@@ -307,6 +542,7 @@ const Analysis: FC<AnalysisProps> = () => {
             </ChartCard>
           </Col>
         </Row>
+        
         <Row
           gutter={24}
           style={{
@@ -326,7 +562,18 @@ const Analysis: FC<AnalysisProps> = () => {
                 </Suspense>
           </Col>
         </Row>
-
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+          <Col xl={24} lg={24} md={24} sm={24} xs={24}>
+            <Card>
+              <DemoMix/>
+            </Card>
+          </Col>
+        </Row>
         <OfflineData
             activeKey={activeKey}
             loading={loading}

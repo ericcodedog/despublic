@@ -33,7 +33,7 @@ import Trend from './components/Trend';
 import numeral from 'numeral';
 import { Progress, TinyArea ,Area} from '@ant-design/charts';
 import { DataView } from '@antv/data-set';
-
+import { Funnel } from '@ant-design/plots';
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
 
@@ -574,8 +574,101 @@ const DemoArea = () => {
 
   return <Area {...config} />;
 };
-
-
+const DemoFunnel1 = () => {
+  const data = [
+    {
+      stage: '接触广告',
+      number: 253256,
+    },
+    {
+      stage: '点击广告',
+      number: 151125,
+    },
+    {
+      stage: '停留目标页面',
+      number: 144513,
+    },
+    {
+      stage: '加入购物车',
+      number: 82517,
+    },
+    {
+      stage: '完成购买',
+      number: 52619,
+    },
+  ];
+  const config = {
+    //width:600,
+    data: data,
+    xField: 'stage',
+    yField: 'number',
+    legend: true,
+    
+  };
+  return <Funnel {...config} />;
+};
+const DemoFunnel2 = () => {
+  const data = [
+    {
+      stage: '接触广告',
+      number: 575769,
+    },
+    {
+      stage: '点击广告',
+      number: 351125,
+    },
+    {
+      stage: '停留目标页面',
+      number: 244513,
+    },
+    {
+      stage: '加入购物车',
+      number: 182517,
+    },
+    {
+      stage: '完成购买',
+      number: 152619,
+    },
+  ];
+  const config = {
+    data: data,
+    xField: 'stage',
+    yField: 'number',
+    legend: true,
+  };
+  return <Funnel {...config} />;
+};
+const DemoFunnel3 = () => {
+  const data = [
+    {
+      stage: '接触广告',
+      number: 389517,
+    },
+    {
+      stage: '点击广告',
+      number: 228448,
+    },
+    {
+      stage: '停留目标页面',
+      number: 118122,
+    },
+    {
+      stage: '加入购物车',
+      number: 82517,
+    },
+    {
+      stage: '完成购买',
+      number: 52619,
+    },
+  ];
+  const config = {
+    data: data,
+    xField: 'stage',
+    yField: 'number',
+    legend: true,
+  };
+  return <Funnel {...config} />;
+};
   return (
     <GridContent>
       <>
@@ -749,7 +842,28 @@ const DemoArea = () => {
             </Card>
           </Col>
         </Row>
-
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+            <Card title="百度">
+              <DemoFunnel1/>
+            </Card>
+          </Col>
+          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+            <Card title="腾讯">
+              <DemoFunnel2/>
+            </Card>
+          </Col>
+          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+            <Card title="今日头条">
+              <DemoFunnel3/>
+            </Card>
+          </Col>
+        </Row>
         
         
       </>
