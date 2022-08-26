@@ -389,7 +389,31 @@ const DemoChoroplethMapc = () => {
 
   return <ChoroplethMap {...config} />;
 };
-
+const rankingListData: { title: string; total: number }[] = [];
+rankingListData.push({
+  title: `北京市`,
+  total: 3100,
+});
+rankingListData.push({
+  title: `上海市`,
+  total: 2300,
+});
+rankingListData.push({
+  title: `天津市`,
+  total: 1500,
+});
+rankingListData.push({
+  title: `重庆市`,
+  total: 1300,
+});
+rankingListData.push({
+  title: `深圳市`,
+  total: 1200,
+});
+rankingListData.push({
+  title: `青岛市`,
+  total: 600,
+});
 /*
 <Suspense fallback={null}>
           <SalesCard
@@ -496,11 +520,24 @@ const DemoChoroplethMapc = () => {
             marginTop: 24,
           }}
         >
-          <Col xl={8} lg={24} md={24} sm={24} xs={24} style={{ marginTop: 24, }}>
-              <div className={styles.mapChart}>
-                <DemoChoroplethMap/>
+          <Col xl={8} lg={12} md={12} sm={24} xs={24}>
+              <div className={styles.salesRank}>
+                <h4 className={styles.rankingTitle}>销售排名</h4>
+                <ul className={styles.rankingList}>
+                  {rankingListData.map((item, i) => (
+                    <li key={item.title}>
+                      <span className={`${styles.rankingItemNumber} ${i < 3 ? styles.active : ''}`}>
+                        {i + 1}
+                      </span>
+                      <span className={styles.rankingItemTitle} title={item.title}>
+                        {item.title}
+                      </span>
+                      <span>{numeral(item.total).format('0,0')}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-          </Col>
+            </Col>
            <Col xl={16} lg={24} md={24} sm={24} xs={24} style={{ marginTop: 24, }}>
             <div className={styles.mapChart}>
                 <DemoChoroplethMapc/>
