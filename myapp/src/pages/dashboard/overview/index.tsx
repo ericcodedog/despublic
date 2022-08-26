@@ -728,22 +728,22 @@ const DemoBar = () => {
  
   const scatdata=data?.scatterData;
   const DemoScatter = () => {
-    /*const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
   
     useEffect(() => {
       asyncFetch();
     }, []);
   
-    const asyncFetch = () => {
-      fetch('https://gw.alipayobjects.com/os/antfincdn/aao6XnO5pW/IMDB.json')
+    const asyncFetch = () => {//https://gw.alipayobjects.com/os/bmw-prod/3e4db10a-9da1-4b44-80d8-c128f42764a8.json
+      fetch('https://gw.alipayobjects.com/os/bmw-prod/3e4db10a-9da1-4b44-80d8-c128f42764a8.json')//https://gw.alipayobjects.com/os/antfincdn/aao6XnO5pW/IMDB.json
         .then((response) => response.json())
         .then((json) => setData(json))
         .catch((error) => {
           console.log('fetch data failed', error);
         });
-    };*/
+    };
     //const data=scatdata;
-    const data=[
+    /*const data=[
       {
         Title: "Guardians of the Galaxy",
         Genre: "古越龙山",
@@ -6684,8 +6684,9 @@ const DemoBar = () => {
         Revenue: 19.64,
         Rating: 5.3
       }
-    ];
+    ];*/
     const config = {
+      /*
       appendPadding: 10,
       data,
       xField: 'Revenue',// (Millions)
@@ -6693,6 +6694,17 @@ const DemoBar = () => {
       shape: 'circle',
       colorField: 'Genre',
       size: 4,
+      */
+      appendPadding: 30,
+      data,
+      xField: 'xG conceded',
+      yField: 'Shot conceded',
+      colorField: 'Result',
+      size: 5,
+      shape: 'circle',
+      pointStyle: {
+        fillOpacity: 1,
+      },
       yAxis: {
         nice: true,
         line: {
