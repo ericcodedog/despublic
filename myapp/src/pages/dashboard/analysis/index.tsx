@@ -514,7 +514,7 @@ rankingListData.push({
                   <Statistic title="每秒交易总额" suffix="元" value={numeral(234).format('0,0')} />
                 </Col>
               </Row>
-              <Row
+        <Row
           gutter={24}
           style={{
             marginTop: 24,

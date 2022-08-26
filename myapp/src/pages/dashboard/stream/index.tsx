@@ -442,7 +442,7 @@ const DemoMix = () => {
         <h1 style={{
             marginTop: 24,
           }}>
-          直播
+          进阶数据
         </h1>
         <Row
           gutter={24}
@@ -450,7 +450,55 @@ const DemoMix = () => {
             marginTop: 24,
           }}
         >
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+          
+        </Row>
+        
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+          <Col xl={24} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+                  <StreamCard
+                    rangePickerValue={rangePickerValue}
+                    salesData={data?.salesData || []}
+                    isActive={isActive}
+                    handleRangePickerChange={handleRangePickerChange}
+                    loading={loading}
+                    selectDate={selectDate}
+                  />
+                </Suspense>
+          </Col>
+        </Row>
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+          <Col xl={24} lg={24} md={24} sm={24} xs={24}>
+            <Card>
+              <DemoMix/>
+            </Card>
+          </Col>
+        </Row>
+        <OfflineData
+            activeKey={activeKey}
+            loading={loading}
+            offlineData={data?.offlineData || []}
+            offlineChartData={data?.offlineChartData || []}
+            handleTabChange={handleTabChange}
+          />
+        
+      </>
+    </GridContent>
+  );
+};
+
+export default Analysis;
+/*<Col xl={8} lg={24} md={24} sm={24} xs={24}>
             <ChartCard
               bordered={false}
               title="新增客户"
@@ -540,54 +588,7 @@ const DemoMix = () => {
                 ]}
               />
             </ChartCard>
-          </Col>
-        </Row>
-        
-        <Row
-          gutter={24}
-          style={{
-            marginTop: 24,
-          }}
-        >
-          <Col xl={24} lg={24} md={24} sm={24} xs={24}>
-            <Suspense fallback={null}>
-                  <StreamCard
-                    rangePickerValue={rangePickerValue}
-                    salesData={data?.salesData || []}
-                    isActive={isActive}
-                    handleRangePickerChange={handleRangePickerChange}
-                    loading={loading}
-                    selectDate={selectDate}
-                  />
-                </Suspense>
-          </Col>
-        </Row>
-        <Row
-          gutter={24}
-          style={{
-            marginTop: 24,
-          }}
-        >
-          <Col xl={24} lg={24} md={24} sm={24} xs={24}>
-            <Card>
-              <DemoMix/>
-            </Card>
-          </Col>
-        </Row>
-        <OfflineData
-            activeKey={activeKey}
-            loading={loading}
-            offlineData={data?.offlineData || []}
-            offlineChartData={data?.offlineChartData || []}
-            handleTabChange={handleTabChange}
-          />
-        
-      </>
-    </GridContent>
-  );
-};
-
-export default Analysis;
+          </Col>*/
 /*
 <Col xl={24} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>

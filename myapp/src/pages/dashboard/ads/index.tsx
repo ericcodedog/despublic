@@ -711,7 +711,7 @@ const DemoFunnel3 = () => {
         <h1 style={{
             marginTop: 24,
           }}>
-          广告
+          进阶数据
         </h1>
         <Row
           gutter={24}
@@ -719,7 +719,70 @@ const DemoFunnel3 = () => {
             marginTop: 24,
           }}
         >
+          
+        </Row>
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+          <Col xl={24} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+                  <AdsCard
+                    rangePickerValue={rangePickerValue}
+                    salesData={data?.salesData || []}
+                    isActive={isActive}
+                    handleRangePickerChange={handleRangePickerChange}
+                    loading={loading}
+                    selectDate={selectDate}
+                  />
+                </Suspense>
+          </Col>
+        </Row>
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+          <Col xl={24} lg={24} md={24} sm={24} xs={24}>
+            <Card>
+              <DemoArea/>
+            </Card>
+          </Col>
+        </Row>
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
           <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+            <Card title="百度">
+              <DemoFunnel1/>
+            </Card>
+          </Col>
+          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+            <Card title="腾讯">
+              <DemoFunnel2/>
+            </Card>
+          </Col>
+          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+            <Card title="今日头条">
+              <DemoFunnel3/>
+            </Card>
+          </Col>
+        </Row>
+        
+        
+      </>
+    </GridContent>
+  );
+};
+
+export default Analysis;
+/*<Col xl={8} lg={24} md={24} sm={24} xs={24}>
             <ChartCard
               bordered={false}
               title="新增客户"
@@ -809,69 +872,7 @@ const DemoFunnel3 = () => {
                 ]}
               />
             </ChartCard>
-          </Col>
-        </Row>
-        <Row
-          gutter={24}
-          style={{
-            marginTop: 24,
-          }}
-        >
-          <Col xl={24} lg={24} md={24} sm={24} xs={24}>
-            <Suspense fallback={null}>
-                  <AdsCard
-                    rangePickerValue={rangePickerValue}
-                    salesData={data?.salesData || []}
-                    isActive={isActive}
-                    handleRangePickerChange={handleRangePickerChange}
-                    loading={loading}
-                    selectDate={selectDate}
-                  />
-                </Suspense>
-          </Col>
-        </Row>
-        <Row
-          gutter={24}
-          style={{
-            marginTop: 24,
-          }}
-        >
-          <Col xl={24} lg={24} md={24} sm={24} xs={24}>
-            <Card>
-              <DemoArea/>
-            </Card>
-          </Col>
-        </Row>
-        <Row
-          gutter={24}
-          style={{
-            marginTop: 24,
-          }}
-        >
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
-            <Card title="百度">
-              <DemoFunnel1/>
-            </Card>
-          </Col>
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
-            <Card title="腾讯">
-              <DemoFunnel2/>
-            </Card>
-          </Col>
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
-            <Card title="今日头条">
-              <DemoFunnel3/>
-            </Card>
-          </Col>
-        </Row>
-        
-        
-      </>
-    </GridContent>
-  );
-};
-
-export default Analysis;
+          </Col>*/
 /*
 <Col xl={24} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
