@@ -242,9 +242,9 @@ const IntroduceRow = ({ loading, visitData }: { loading: boolean; visitData: Dat
           size={8}
           marker={[
             {
-              value: 0.8,
+              value: 0.5,
               style: {
-                stroke: '#13C2C2',
+                stroke: '#ff0000',
               },
             },
           ]}

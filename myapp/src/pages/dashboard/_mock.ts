@@ -319,17 +319,17 @@ for (let i = 0; i < 30; i += 1) {
   offlineChartData2.push({
     date,
     type: '电商',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 50) + i*5 + 100,
   });
   offlineChartData2.push({
     date,
     type: '直播',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 50) + i*5 + 100,
   });
   offlineChartData2.push({
     date,
     type: '自营',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * 50) + i*1,
   });
 }
 const offlineChartData3 = [];
@@ -338,27 +338,27 @@ for (let i = 0; i < 30; i += 1) {
   offlineChartData3.push({
     date,
     type: '古越龙山',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * Math.random()*(90-i) + 200 + Math.random()*i*5),
   });
   offlineChartData3.push({
     date,
     type: '女儿红',
-    value: Math.floor(Math.random() * 100) + i*20,
+    value: Math.floor(Math.random() * Math.random()*(80-i) + 230 + Math.random()*i*5),
   });
   offlineChartData3.push({
     date,
     type: '沈永和',
-    value: Math.floor(Math.random() * 100) + i*20,
+    value: Math.floor(Math.random() * Math.random()*(70-i) + 150 + Math.random()*i*3),
   });
   offlineChartData3.push({
     date,
     type: '状元红',
-    value: Math.floor(Math.random() * 100) + i*20,
+    value: Math.floor(Math.random() * Math.random()*(60-i) + 90 + Math.random()*i*2),
   });
   offlineChartData3.push({
     date,
     type: '鉴湖',
-    value: Math.floor(Math.random() * 100) + i*10,
+    value: Math.floor(Math.random() * Math.random()*(50-i) + 80 + Math.random()*i*2),
   });
 }
 const offlineChartData4 = [];//eshop
@@ -404,27 +404,27 @@ for (let i = 0; i < 30; i += 1) {
   offlineChartData5.push({
     date,
     type: '抖音',
-    value: Math.floor(Math.random() * 50) + i*20,
+    value: Math.floor(Math.random() * 50 + i*20*Math.random() + 90),
   });
   offlineChartData5.push({
     date,
     type: '快手',
-    value: Math.floor(Math.random() * 50) + i*20,
+    value: Math.floor(Math.random() * 50 + i*20*Math.random() + 80),
   });
   offlineChartData5.push({
     date,
     type: '淘宝直播',
-    value: Math.floor(Math.random() * 50) + i*10,
+    value: Math.floor(Math.random() * 50 + i*10*Math.random() + 70),
   });
   offlineChartData5.push({
     date,
     type: '小红书',
-    value: Math.floor(Math.random() * 50) + i*10,
+    value: Math.floor(Math.random() * 50 + i*10*Math.random() + 60),
   });
   offlineChartData5.push({
     date,
     type: '得物',
-    value: Math.floor(Math.random() * 50) + i*10,
+    value: Math.floor(Math.random() * 50 + i*10*Math.random() + 50),
   });
 }
 const offlineChartDataEmpty = [];//shop
