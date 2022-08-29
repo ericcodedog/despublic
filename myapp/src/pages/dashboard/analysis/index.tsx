@@ -569,7 +569,7 @@ rankingListData.push({
             marginTop: 24,
           }}
         >
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
             <ChartCard
               bordered={false}
               title="新增客户"
@@ -593,7 +593,7 @@ rankingListData.push({
               </Trend>
             </ChartCard>
           </Col>
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
             <ChartCard
               bordered={false}
               loading={loading}
@@ -618,7 +618,7 @@ rankingListData.push({
               />
             </ChartCard>
           </Col>
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
             <ChartCard
               loading={loading}
               bordered={false}
@@ -658,6 +658,30 @@ rankingListData.push({
                   },
                 ]}
               />
+            </ChartCard>
+          </Col>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
+            <ChartCard
+              loading={loading}
+              bordered={false}
+              title="毛利率"
+              action={
+                <Tooltip title="指标说明">
+                  <InfoCircleOutlined />
+                </Tooltip>
+              }
+              total="30%"
+              footer={<Field label="日纯营收" value={`￥${numeral(11234).format('0,0')}`} />}
+              contentHeight={46}
+            >
+              <Trend flag="up" style={{ marginRight: 16 }}>
+                    周同比
+                    <span className={styles.trendText}>12%</span>
+                  </Trend>
+                  <Trend flag="down">
+                    日同比
+                    <span className={styles.trendText}>11%</span>
+                  </Trend>
             </ChartCard>
           </Col>
         </Row>
@@ -701,7 +725,7 @@ rankingListData.push({
             marginTop: 24,
           }}
         >
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
             <ChartCard
               bordered={false}
               title="新增客户"
@@ -725,7 +749,7 @@ rankingListData.push({
               </Trend>
             </ChartCard>
           </Col>
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
             <ChartCard
               bordered={false}
               loading={loading}
@@ -750,7 +774,7 @@ rankingListData.push({
               />
             </ChartCard>
           </Col>
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
             <ChartCard
               loading={loading}
               bordered={false}
@@ -790,6 +814,30 @@ rankingListData.push({
                   },
                 ]}
               />
+            </ChartCard>
+          </Col>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
+            <ChartCard
+              loading={loading}
+              bordered={false}
+              title="毛利率"
+              action={
+                <Tooltip title="指标说明">
+                  <InfoCircleOutlined />
+                </Tooltip>
+              }
+              total="30%"
+              footer={<Field label="日纯营收" value={`￥${numeral(11234).format('0,0')}`} />}
+              contentHeight={46}
+            >
+              <Trend flag="up" style={{ marginRight: 16 }}>
+                    周同比
+                    <span className={styles.trendText}>12%</span>
+                  </Trend>
+                  <Trend flag="down">
+                    日同比
+                    <span className={styles.trendText}>11%</span>
+                  </Trend>
             </ChartCard>
           </Col>
         </Row>
@@ -835,7 +883,7 @@ rankingListData.push({
             marginTop: 24,
           }}
         >
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
             <ChartCard
               bordered={false}
               title="新增客户"
@@ -859,7 +907,7 @@ rankingListData.push({
               </Trend>
             </ChartCard>
           </Col>
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
             <ChartCard
               bordered={false}
               loading={loading}
@@ -884,7 +932,7 @@ rankingListData.push({
               />
             </ChartCard>
           </Col>
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
             <ChartCard
               loading={loading}
               bordered={false}
@@ -926,7 +974,30 @@ rankingListData.push({
               />
             </ChartCard>
           </Col>
-        
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
+            <ChartCard
+              loading={loading}
+              bordered={false}
+              title="毛利率"
+              action={
+                <Tooltip title="指标说明">
+                  <InfoCircleOutlined />
+                </Tooltip>
+              }
+              total="30%"
+              footer={<Field label="日纯营收" value={`￥${numeral(11234).format('0,0')}`} />}
+              contentHeight={46}
+            >
+              <Trend flag="up" style={{ marginRight: 16 }}>
+                    周同比
+                    <span className={styles.trendText}>12%</span>
+                  </Trend>
+                  <Trend flag="down">
+                    日同比
+                    <span className={styles.trendText}>11%</span>
+                  </Trend>
+            </ChartCard>
+          </Col>
         </Row>
         
         <Row gutter={24}
@@ -969,7 +1040,7 @@ rankingListData.push({
             marginTop: 24,
           }}
         >
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
             <ChartCard
               bordered={false}
               title="新增客户"
@@ -993,7 +1064,7 @@ rankingListData.push({
               </Trend>
             </ChartCard>
           </Col>
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
             <ChartCard
               bordered={false}
               loading={loading}
@@ -1018,7 +1089,7 @@ rankingListData.push({
               />
             </ChartCard>
           </Col>
-          <Col xl={8} lg={24} md={24} sm={24} xs={24}>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
             <ChartCard
               loading={loading}
               bordered={false}
@@ -1058,6 +1129,30 @@ rankingListData.push({
                   },
                 ]}
               />
+            </ChartCard>
+          </Col>
+          <Col xl={6} lg={24} md={24} sm={24} xs={24}>
+            <ChartCard
+              loading={loading}
+              bordered={false}
+              title="毛利率"
+              action={
+                <Tooltip title="指标说明">
+                  <InfoCircleOutlined />
+                </Tooltip>
+              }
+              total="30%"
+              footer={<Field label="日纯营收" value={`￥${numeral(11234).format('0,0')}`} />}
+              contentHeight={46}
+            >
+              <Trend flag="up" style={{ marginRight: 16 }}>
+                    周同比
+                    <span className={styles.trendText}>12%</span>
+                  </Trend>
+                  <Trend flag="down">
+                    日同比
+                    <span className={styles.trendText}>11%</span>
+                  </Trend>
             </ChartCard>
           </Col>
         </Row>
